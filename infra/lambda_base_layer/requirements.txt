@@ -1,0 +1,4 @@
+mangum
+openai
+fastapi
+pydantic
