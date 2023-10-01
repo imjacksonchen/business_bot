@@ -10,14 +10,18 @@ phases:
       - pip install -r requirements.txt -t lib
   build:
     commands:
-      - echo "Zipping deployment package..."
+      - echo "Zipping base layer..."
       - cd lib
-      - zip -r ../layer.zip .
+      - zip -r ../../../layer.zip .
       - cd ../../..
+      - echo "Zipping function code..."
       - cd python-backend
-      - zip -gr layer.zip .
+      - zip -r ../function.zip .
+      - cd ..
   post_build:
     commands:
       - echo "Updating lambda Function..."
-      - aws lambda update-function-code --function-name InfraStack-ApiFunctionCE271BD4-QJGmuSx5vNPN --zip-file fileb://layer.zip
+      - aws lambda update-function-code --function-name InfraStack-ApiFunctionCE271BD4-QJGmuSx5vNPN --zip-file fileb://function.zip
+      - echo "Updating lambda Layer..."
+      - aws lambda publish-layer-version --layer-name arn:aws:lambda:us-east-2:055086161576:layer:BaseLayer786B35E5:7 --zip-file fileb://layer.zip
       - echo "DONE!!"
