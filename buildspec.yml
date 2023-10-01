@@ -23,5 +23,5 @@ phases:
       - echo "Updating lambda Function..."
       - aws lambda update-function-code --function-name InfraStack-ApiFunctionCE271BD4-QJGmuSx5vNPN --zip-file fileb://function.zip
       - echo "Updating lambda Layer..."
-      - aws lambda publish-layer-version --layer-name arn:aws:lambda:us-east-2:055086161576:layer:BaseLayer786B35E5:7 --zip-file fileb://layer.zip
+      - aws lambda publish-layer-version --layer-name BaseLayer786B35E5 --zip-file fileb://layer.zip
       - echo "DONE!!"

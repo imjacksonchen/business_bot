@@ -21,7 +21,6 @@ async def gather_competitive_intel(company: str):
     report = gather_intelligence(company)
     return {"message": report}
 
-# test
 @app.get("/generate_email")
 async def generate_email_sequences(recipient_name: str, recipient_title: str, recipient_company: str, sender_name: str, sender_company: str, sequence: str):
     match sequence:
