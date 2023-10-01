@@ -25,7 +25,7 @@ def reach_out_email(recipient_name, recipient_title, recipient_company, sender_n
 def reengagement_email(recipient_name, recipient_title, recipient_company, sender_name, sender_company):
     reengagement_prompt = f"Generate a personalized message for re-engaging {recipient_name}, {recipient_title}, {recipient_company} about a business outreach. My name is {sender_name}, {sender_company}. With no fill ins and under 300 words."
     return generate_email(reengagement_prompt)
-
+# rst
 def feedback_email(recipient_name, recipient_title, recipient_company, sender_name, sender_company):
     feedback_prompt = f"Generate a personalized message for {recipient_name}, {recipient_title}, {recipient_company} asking for feedback on our customer service. My name is {sender_name}, {sender_company}. With no fill ins and under 300 words."
     return generate_email(feedback_prompt)
