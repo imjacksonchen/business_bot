@@ -2,5 +2,3 @@ mangum
 openai
 fastapi
 pydantic
-google-search-results
-wikipedia
