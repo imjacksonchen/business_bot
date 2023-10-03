@@ -12,7 +12,7 @@ def generate_email(prompt):
     )
 
     generated_email: str = response["choices"][0]["text"]
-    generated_email = generated_email.strip()
+    generated_email = generated_email.lstrip()
 
     return generated_email
 
