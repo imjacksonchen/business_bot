@@ -14,7 +14,7 @@ def gather_intelligence(company):
     tools = load_tools(["serpapi", "wikipedia"], llm=llm)
     agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose = False)
 
-    prompt = "What is the latest product from {}? What is the current sentiment of it? What is the latest news on them?".format(company)
+    prompt = "What is the latest product from {} and what is the news on it?".format(company)
 
     return agent.run(prompt)
 
