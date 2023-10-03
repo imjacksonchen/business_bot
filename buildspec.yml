@@ -9,7 +9,7 @@ phases:
       - cd r2d2_prototype
       - pip install -r requirements.txt -t lib
   build:
-    commands:s
+    commands:
       - echo "Zipping base layer..."
       - cd lib
       - zip -r ../../layer.zip .
