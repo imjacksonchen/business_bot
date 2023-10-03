@@ -1,0 +1,37 @@
+/* src/index.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 1rem;
+}
+
+h2 {
+  color: #333;
+}
+
+p {
+  color: #666;
+  font-size: 1.2rem;
+}
+#textboxid
+{
+    height: 50px;
+    width: 1000px;
+    font-size:12pt;
+}
