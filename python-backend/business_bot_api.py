@@ -1,11 +1,20 @@
 from fastapi import FastAPI
 from mangum import Mangum
+from fastapi.middleware.cors import CORSMiddleware
 from twitter import pre_filled_tweet
 from marketResearch import gather_intelligence
 from emailing import reach_out_email, reengagement_email, feedback_email
 
 app = FastAPI()
 handler = Mangum(app, lifespan="off")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 async def root():
@@ -14,7 +23,7 @@ async def root():
 @app.get("/generate_tweet")
 async def generate_tweet_api(prompt: str):
     tweet = pre_filled_tweet(prompt)
-    return {"message": f"generated tweet: {tweet}"}
+    return {"message": tweet}
 
 @app.get("/gather_competitive_intel")
 async def gather_competitive_intel(company: str):
