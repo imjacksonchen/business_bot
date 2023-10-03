@@ -2,12 +2,10 @@ import os
 
 from langchain.llms import OpenAI
 from langchain.agents import AgentType, initialize_agent, load_tools
-from dotenv import load_dotenv
 
 # Use LangChain to get latest competitor information/research
 
 def gather_intelligence(company):
-    load_dotenv()
     os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
     os.environ["SERPAPI_API_KEY"] = os.getenv("SERPAPI_API_KEY")
 
