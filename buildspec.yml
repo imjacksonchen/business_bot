@@ -6,16 +6,15 @@ phases:
       python: 3.9
     commands:
       - echo "Installing dependencies..."
-      - cd infra/lambda_base_layer
+      - cd r2d2_prototype
       - pip install -r requirements.txt -t lib
   build:
-    commands:
+    commands:s
       - echo "Zipping base layer..."
       - cd lib
-      - zip -r ../../../layer.zip .
-      - cd ../../..
+      - zip -r ../../layer.zip .
       - echo "Zipping function code..."
-      - cd python-backend
+      - cd ..
       - zip -r ../function.zip .
       - cd ..
   post_build:
