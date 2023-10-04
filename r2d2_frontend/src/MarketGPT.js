@@ -62,7 +62,7 @@ function Email() {
         </div>
 
         <div class="my-4 mx-auto">
-        <button type="submit" class="btn btn-primary" disabled={isLoading} onSubmit={generateMarketResearch}>Generate Market Research</button>
+        <button type="button" class="btn btn-primary" disabled={isLoading} onClick={generateMarketResearch}>Generate Market Research</button>
         </div>
 
         {marketData ? results() : ""}

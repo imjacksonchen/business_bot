@@ -108,7 +108,7 @@ function Email() {
             </div>
 
             <div class="my-4 mx-auto">
-                <button type="submit" class="btn btn-primary" disabled={isLoading} onSubmit={generateEmail}>Generate personalized email</button>
+                <button type="button" class="btn btn-primary" disabled={isLoading} onClick={generateEmail}>Generate personalized email</button>
             </div>
 
             {resultData ? results() : ""}

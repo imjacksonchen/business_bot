@@ -62,7 +62,7 @@ function Email() {
           </div>
 
           <div class="my-4">
-            <button type="submit" class="btn btn-primary" disabled={isLoading} onSubmit={generateTweet}>Generate Tweet</button>
+            <button type="button" class="btn btn-primary" disabled={isLoading} onClick={generateTweet}>Generate Tweet</button>
           </div>
         </div>
 
