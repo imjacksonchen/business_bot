@@ -2,7 +2,6 @@ import os
 
 from langchain.llms import OpenAI
 from langchain.agents import AgentType, initialize_agent, load_tools
-from langchain.utilities import SerpAPIWrapper
 
 # Use LangChain to get latest competitor information/research
 
