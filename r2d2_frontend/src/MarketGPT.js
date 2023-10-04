@@ -24,6 +24,7 @@ function Email() {
   const generateMarketResearch = async () => {
     try {
       setIsLoading(true);
+      // call to backend to generate a response
       const response = await axios.get(`https://tjw1whlolg.execute-api.us-east-2.amazonaws.com/prod/gather_competitive_intel?company=${inputPrompt}`);
       setMarketData(response.data);
       setIsLoading(false);
