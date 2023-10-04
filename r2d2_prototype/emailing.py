@@ -2,6 +2,7 @@ import os
 
 import openai
 
+# Function to generate a an email based on the prompt
 def generate_email(prompt):
     openai.api_key = os.getenv("OPENAI_API_KEY")
     response = openai.Completion.create(
@@ -16,7 +17,7 @@ def generate_email(prompt):
 
     return generated_email
 
-### Prompts ###
+### Prompts for each sequence ###
 
 def reach_out_email(recipient_name, recipient_title, recipient_company, sender_name, sender_company):
     reach_out_prompt = f"Generate a personalized message for business outreach for {recipient_name}, {recipient_title}, {recipient_company}. My name is {sender_name}, {sender_company}. With no fill ins and under 300 words."

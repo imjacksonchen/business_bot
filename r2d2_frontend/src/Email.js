@@ -12,37 +12,33 @@ function Email() {
     const [sequence, setSequence] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
-    // Function to handle input changes
+    // Next 6 functions to handle input changes
     const handleSenderNameChange = (event) => {
         // Update the state with the current input value
         setSenderName(event.target.value);
     };
 
     const handleSenderCompanyChange = (event) => {
-        // Update the state with the current input value
         setSenderCompany(event.target.value);
     };
 
     const handleRecipientNameChange = (event) => {
-        // Update the state with the current input value
         setRecipientName(event.target.value);
     };
 
     const handleRecipientCompanyChange = (event) => {
-        // Update the state with the current input value
         setRecipientCompany(event.target.value);
     };
 
     const handleRecipientTitlChange = (event) => {
-        // Update the state with the current input value
         setRecipientTitle(event.target.value);
     };
 
     const handleSequenceChange = (event) => {
-        // Update the state with the current input value
         setSequence(event.target.value);
     };
 
+    // Function to call the backend to generate an email based off the sequence
     const generateEmail = async () => {
         try {
             setIsLoading(true);
@@ -54,6 +50,7 @@ function Email() {
         }
     };
 
+    // Results function to display the generated response
     const results = () => (
         <div class="card">
             <div class="card-header">

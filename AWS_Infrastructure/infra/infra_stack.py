@@ -14,13 +14,15 @@ class InfraStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
+        # Set up Lambda layer
         layer = _lambda.LayerVersion(
             self,
             "BaseLayer",
             code = _lambda.Code.from_asset("lambda_base_layer/layer.zip"),
             compatible_runtimes=[_lambda.Runtime.PYTHON_3_11],
             )
-
+        
+        # Set up Lambda function
         api_lambda = _lambda.Function(
             self,
             'ApiFunction',
@@ -34,6 +36,7 @@ class InfraStack(Stack):
                 },
         )
 
+        # Set up the API gateway
         business_bot_api = api_gateway.RestApi(
             self,
             "RestApi",
@@ -44,6 +47,7 @@ class InfraStack(Stack):
             api_lambda
         )
 
+        # Set up the connecton between the function and API gateway
         business_bot_api.root.add_proxy(
             default_integration = api_gateway.LambdaIntegration(api_lambda)
         )

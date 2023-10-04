@@ -1,4 +1,4 @@
-// src/Email.js
+// src/SocialMedia.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -14,12 +14,14 @@ function Email() {
     setInputPrompt(event.target.value);
   };
 
+  // Function to handle key press for Enter
   const handleKeyPress = e => {
     if (e.key === "Enter") {
       generateTweet();
     }
   };
 
+  // Function to make a call to the backend to generate a tweet
   const generateTweet = async () => {
     try {
       setIsLoading(true);
@@ -31,6 +33,7 @@ function Email() {
     }
   };
 
+  // Results function to display the generated response
   const results = () => (
     <div class="card">
       <div class="card-header">

@@ -1,4 +1,4 @@
-// src/Email.js
+// src/MarketGPT.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -13,13 +13,14 @@ function Email() {
     setInputPrompt(event.target.value);
   };
 
+  // Function to handle key press for Enter
   const handleKeyPress = e => {
     if (e.key === "Enter") {
       generateMarketResearch();
     }
   };
 
-
+  // Function to call the backend to generate a short report on the given company
   const generateMarketResearch = async () => {
     try {
       setIsLoading(true);
@@ -31,6 +32,7 @@ function Email() {
     }
   };
 
+  // Results function to display the generated response
   const results = () => {
     return (
       <div class="card">

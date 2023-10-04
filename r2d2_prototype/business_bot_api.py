@@ -6,6 +6,8 @@ from marketResearch import gather_intelligence
 from emailing import reach_out_email, reengagement_email, feedback_email
 
 app = FastAPI()
+
+# handler for AWS lambda
 handler = Mangum(app, lifespan="off")
 
 app.add_middleware(
@@ -16,20 +18,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-async def root():
-    return {"message": "Hello"}
+## API Routes ##
 
+# Generates tweet and returns it for the user
 @app.get("/generate_tweet")
 async def generate_tweet_api(prompt: str):
     tweet = pre_filled_tweet(prompt)
     return {"message": tweet}
 
+# Generates a brief market research report and returns it for the user
 @app.get("/gather_competitive_intel")
 async def gather_competitive_intel(company: str):
     report = gather_intelligence(company)
     return {"message": report}
 
+# Generates an email and returns it for the user
 @app.get("/generate_email")
 async def generate_email_sequences(recipient_name: str, recipient_title: str, recipient_company: str, sender_name: str, sender_company: str, sequence: str):
     match sequence:
