@@ -31,7 +31,9 @@ def generate_tweet(prompt):
         max_tokens = 32
     )
 
+    # Parse out the generated response
     generated_tweet: str = response["choices"][0]["text"]
+    # Remove any newline characters in the beginning of message
     generated_tweet = generated_tweet.strip()
 
     return generated_tweet
@@ -40,6 +42,7 @@ def generate_tweet(prompt):
 def pre_filled_tweet(topic):
     prompt = "Generate a business tweet of {}".format(topic)
     tweet = generate_tweet(prompt)
+    # Encode the generated tweet to be put in a link
     encoding = urllib.parse.quote(tweet)
     link = "http://twitter.com/intent/tweet?text={}".format(encoding)
     return link

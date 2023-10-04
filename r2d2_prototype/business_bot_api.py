@@ -7,9 +7,10 @@ from emailing import reach_out_email, reengagement_email, feedback_email
 
 app = FastAPI()
 
-# handler for AWS lambda
+# Handler for AWS lambda
 handler = Mangum(app, lifespan="off")
 
+# Allow api methods 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

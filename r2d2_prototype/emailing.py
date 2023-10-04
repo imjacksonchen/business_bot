@@ -9,10 +9,12 @@ def generate_email(prompt):
         engine = "davinci-instruct-beta-v3",
         prompt = prompt,
         temperature = 1,
-        max_tokens = 300 
+        max_tokens = 300 # Limit tokens so that I don't spend all my credits on accident
     )
 
+    # Parse out the generated response
     generated_email: str = response["choices"][0]["text"]
+    # Remove any newline characters in the beginning of message
     generated_email = generated_email.lstrip()
 
     return generated_email
