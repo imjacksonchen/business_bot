@@ -14,13 +14,6 @@ function Email() {
     setInputPrompt(event.target.value);
   };
 
-  // Function to handle key press for Enter
-  const handleKeyPress = e => {
-    if (e.key === "Enter") {
-      generateTweet();
-    }
-  };
-
   // Function to make a call to the backend to generate a tweet
   const generateTweet = async () => {
     try {
@@ -58,7 +51,7 @@ function Email() {
         <div class="mx-auto p-2">
           <div>
             <label for="exampleFormControlInput1" class="form-label">Enter a topic:</label>
-            <input type="text" value={inputPrompt} onChange={handlePromptChange} onKeyDown={handleKeyPress} class="form-control" style={{ width: "300px" }} id="exampleFormControlInput1" placeholder="Coffee" />
+            <input type="text" value={inputPrompt} onChange={handlePromptChange} class="form-control" style={{ width: "300px" }} id="exampleFormControlInput1" placeholder="Coffee" />
           </div>
 
           <div class="my-4">

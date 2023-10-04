@@ -13,13 +13,6 @@ function Email() {
     setInputPrompt(event.target.value);
   };
 
-  // Function to handle key press for Enter
-  const handleKeyPress = e => {
-    if (e.key === "Enter") {
-      generateMarketResearch();
-    }
-  };
-
   // Function to call the backend to generate a short report on the given company
   const generateMarketResearch = async () => {
     try {
@@ -58,7 +51,7 @@ function Email() {
 
         <div>
           <label for="exampleFormControlInput1" class="form-label">Enter a company:</label>
-          <input type="text" value={inputPrompt} onKeyDown={handleKeyPress} onChange={handleInputChange} class="form-control" style={{width: "300px"}} id="exampleFormControlInput1" placeholder="Tesla" />
+          <input type="text" value={inputPrompt} onChange={handleInputChange} class="form-control" style={{width: "300px"}} id="exampleFormControlInput1" placeholder="Tesla" />
         </div>
 
         <div class="my-4 mx-auto">
