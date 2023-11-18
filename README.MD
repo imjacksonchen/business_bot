@@ -1,6 +1,4 @@
-# R2D2 Prototype
-
-This is a prototype of involve.ai's R2D2. This application is only for an assessment demonstration.
+# Business Bot
 
 ## Setup
 
